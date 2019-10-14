@@ -11,9 +11,11 @@ class TimeWorker : Runnable{
 
     override fun run() {
         running = true
-        seconds++
-        Log.i("myapp", "Segundos = $seconds")
-        SystemClock.sleep(1000)
+        while(running){
+            seconds++
+            Log.i("myapp", "Segundos = $seconds")
+            SystemClock.sleep(1000)
+        }
     }
 
     fun stop(){
