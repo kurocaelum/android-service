@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun start(){
+    fun start(view: View){
         i = Intent(applicationContext, TimeService::class.java)
         startService(i)
 
@@ -27,12 +27,12 @@ class MainActivity : AppCompatActivity() {
         bindService(i, conn, 0)
     }
 
-    fun read(){
+    fun read(view: View){
         val second = service?.getSeconds()
         txt_seconds.text = second.toString()
     }
 
-    fun stop(){
+    fun stop(view: View){
         if(i != null)
             stopService(i)
     }

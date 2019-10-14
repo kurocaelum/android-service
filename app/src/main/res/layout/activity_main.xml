@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
 
@@ -39,7 +39,5 @@
         android:layout_height="match_parent"
         style="?android:attr/textAppearanceLarge"
         />
-
-
 
 </LinearLayout>
