@@ -3,7 +3,7 @@ package android.imd.serviceexample
 import android.os.SystemClock
 import android.util.Log
 
-class TimeWork : Runnable{
+class TimeWorker : Runnable{
 
     @Volatile
     private var running: Boolean = false
