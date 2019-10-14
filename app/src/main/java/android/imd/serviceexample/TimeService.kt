@@ -20,7 +20,12 @@ class TimeService : Service() {
         return START_STICKY
     }
 
-    override fun onBind(intent: Intent): IBinder {
-        TODO("Return the communication channel to the service.")
+    override fun onDestroy() {
+        super.onDestroy()
+        worker?.stop()
+    }
+
+    override fun onBind(intent: Intent): IBinder? {
+        return null
     }
 }
