@@ -2,12 +2,14 @@ package android.imd.serviceexample
 
 import android.app.Service
 import android.content.Intent
+import android.os.Binder
 import android.os.IBinder
 import android.util.Log
 
 class TimeService : Service() {
 
     private var worker: TimeWorker? = null
+    private var binder = TimeServiceBinder()
 
     override fun onCreate() {
         super.onCreate()
@@ -25,7 +27,16 @@ class TimeService : Service() {
         worker?.stop()
     }
 
-    override fun onBind(intent: Intent): IBinder? {
-        return null
+    override fun onBind(intent: Intent): IBinder {
+        return binder
+    }
+
+    inner class TimeServiceBinder: Binder(){
+        val service: TimeService
+            get() = this@TimeService
+    }
+
+    fun getSeconds(): Int?{
+        return worker?.getSeconds()
     }
 }

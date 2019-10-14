@@ -12,10 +12,19 @@ class TimeWorker : Runnable{
     override fun run() {
         running = true
         while(running){
-            seconds++
-            Log.i("myapp", "Segundos = $seconds")
+            incrementSeconds()
+            Log.i("myapp", "Segundos = ${getSeconds()}")
             SystemClock.sleep(1000)
         }
+    }
+
+    @Synchronized
+    private fun incrementSeconds(){
+        seconds++
+    }
+
+    fun getSeconds(): Int{
+        return this.seconds
     }
 
     fun stop(){

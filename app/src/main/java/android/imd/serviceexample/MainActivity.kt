@@ -14,13 +14,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun start(view: View){
+    fun start(){
         i = Intent(applicationContext, TimeService::class.java)
         startService(i)
     }
 
-    fun stop(view: View){
+    fun stop(){
         if(i != null)
             stopService(i)
+    }
+
+    fun read(){
+
     }
 }
